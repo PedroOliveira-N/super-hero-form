@@ -1,23 +1,15 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import HeroCard from './components/HeroCard';
+import HeroForm from './components/HeroForm';
 
 function App() {
+    const [heroi, setHeroi] = useState(null)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <HeroForm setHeroi={setHeroi}/>
+        {heroi && <HeroCard heroi={heroi}/>}
     </div>
   );
 }
